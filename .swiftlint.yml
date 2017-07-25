@@ -1,0 +1,19 @@
+# paths to ignore during linting. overridden byincluded.
+excluded:
+- Carthage
+- Pods
+# parameterized rules can be customized from this configuration file
+line_length: 200
+# parameterized rules for variable name length
+variable_name:
+  max_length:
+    warning: 45
+    error: 60
+  min_length:
+    warning: 1
+# parameterized rules for function parameter count
+function_parameter_count:
+    warning: 5
+# handling force_unwrapping  
+opt_in_rules:
+  - force_unwrapping

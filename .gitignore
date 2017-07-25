@@ -1,0 +1,44 @@
+# osx noise
+.DS_Store
+
+# xcode noise
+build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# svn & cvs
+.svn
+CVS
+.ruby-version
+Instamotor-*.app.dSYM.zip
+Instamotor-*.ipa
+fastlane/report.xml
+
+2W532NVWGT.cer
+22EYGN8289.cer
+22EYGN8289.certSigningRequest
+22EYGN8289.p12
+AppStore_com.instamotor.app.mobileprovision
+certs/*
+
+# cocoapods?
+.bundle
+Pods/*
+
+# fastlane specific
+fastlane/report.xml
+
+# deliver temporary files
+fastlane/Preview.html
+
+# snapshot generated screenshots
+fastlane/screenshots
+
+# scan temporary files
+fastlane/test_output

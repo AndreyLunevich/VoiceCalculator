@@ -1,0 +1,10 @@
+/*  Localizable.strings */
+
+// common
+
+"START" = "Start";
+"STOP" = "Stop";
+
+// titles
+
+"VOICE_CALCULATOR" = "Voice Calculator";
