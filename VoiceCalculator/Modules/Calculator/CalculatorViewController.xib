@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalculatorViewController" customModule="VoiceCalculator" customModuleProvider="target">
             <connections>
                 <outlet property="btnStartStop" destination="YQc-yw-dM7" id="eqm-7o-zJE"/>
+                <outlet property="recognizedLabel" destination="xaD-WW-Qq1" id="9Ip-oU-RQj"/>
+                <outlet property="resultLabel" destination="Pmc-T0-0Pc" id="AWt-0e-eRq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,35 +28,39 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-yw-dM7">
-                    <rect key="frame" x="16" y="56.5" width="343" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="aR0-PZ-S31"/>
-                    </constraints>
-                    <state key="normal" title="Start"/>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculate value of:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaD-WW-Qq1">
-                    <rect key="frame" x="16" y="150.5" width="343" height="21"/>
+                    <rect key="frame" x="16" y="96.5" width="343" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calculated value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pmc-T0-0Pc">
-                    <rect key="frame" x="16" y="187.5" width="343" height="21"/>
+                    <rect key="frame" x="16" y="133.5" width="343" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQc-yw-dM7">
+                    <rect key="frame" x="16" y="617" width="343" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="aR0-PZ-S31"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="Start Calculation">
+                        <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="selected" title="Stop Calculation"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="YQc-yw-dM7" firstAttribute="top" secondItem="vMN-FB-TtC" secondAttribute="bottom" constant="16" id="0B8-A6-JaU"/>
+                <constraint firstItem="xaD-WW-Qq1" firstAttribute="top" secondItem="vMN-FB-TtC" secondAttribute="bottom" constant="56" id="3Pl-ny-Fm0"/>
                 <constraint firstItem="Pmc-T0-0Pc" firstAttribute="top" secondItem="xaD-WW-Qq1" secondAttribute="bottom" constant="16" id="5aO-Bp-ybx"/>
                 <constraint firstAttribute="trailing" secondItem="YQc-yw-dM7" secondAttribute="trailing" constant="16" id="7am-WV-Tpk"/>
                 <constraint firstItem="vMN-FB-TtC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="C3P-Nu-Af5"/>
                 <constraint firstAttribute="trailing" secondItem="xaD-WW-Qq1" secondAttribute="trailing" constant="16" id="CUb-Uj-oTW"/>
                 <constraint firstAttribute="trailing" secondItem="vMN-FB-TtC" secondAttribute="trailing" constant="16" id="DdO-fS-Y7o"/>
-                <constraint firstItem="xaD-WW-Qq1" firstAttribute="top" secondItem="YQc-yw-dM7" secondAttribute="bottom" constant="64" id="Doa-nD-r4Z"/>
+                <constraint firstAttribute="bottom" secondItem="YQc-yw-dM7" secondAttribute="bottom" constant="20" id="NGr-Ot-CVz"/>
                 <constraint firstAttribute="trailing" secondItem="Pmc-T0-0Pc" secondAttribute="trailing" constant="16" id="S3f-YW-E5a"/>
                 <constraint firstItem="Pmc-T0-0Pc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="bp6-Bd-gTm"/>
                 <constraint firstItem="xaD-WW-Qq1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="oFF-2B-joD"/>

@@ -8,3 +8,7 @@
 // titles
 
 "VOICE_CALCULATOR" = "Voice Calculator";
+
+// calculator
+
+"CALCULATE_VALUE" = "Calculate value of: %@";

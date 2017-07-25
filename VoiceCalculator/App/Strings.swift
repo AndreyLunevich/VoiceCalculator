@@ -12,6 +12,10 @@ import Foundation
 // swiftlint:disable type_name
 
 enum L10n {
+  /// Calculate value of: %@
+  static func calculateValue(_ p1: String) -> String {
+    return L10n.tr("CALCULATE_VALUE", p1)
+  }
   /// Start
   static let start = L10n.tr("START")
   /// Stop

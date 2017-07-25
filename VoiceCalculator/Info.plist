@@ -40,5 +40,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Your speech will be detected after tapping the start button.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speak and watch your math expression results</string>
 </dict>
 </plist>
