@@ -1,3 +1,5 @@
+import Foundation
+
 extension Double {
 
     var asWord: String {

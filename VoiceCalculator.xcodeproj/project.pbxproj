@@ -18,9 +18,9 @@
 		D801AC861F27E77800CB1ABC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801AC851F27E77800CB1ABC /* BaseViewController.swift */; };
 		D801AC8F1F27EB3900CB1ABC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D801AC8E1F27EB3900CB1ABC /* Localizable.strings */; };
 		D801AC911F27EB9000CB1ABC /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801AC901F27EB9000CB1ABC /* Strings.swift */; };
-		D801AC991F27EBD700CB1ABC /* VoiceCalculatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801AC981F27EBD700CB1ABC /* VoiceCalculatorSpec.swift */; };
+		D801AC991F27EBD700CB1ABC /* CalculatorBrainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801AC981F27EBD700CB1ABC /* CalculatorBrainSpec.swift */; };
 		D801ACA11F27F3F600CB1ABC /* Recognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D801ACA01F27F3F600CB1ABC /* Recognizer.swift */; };
-		D849166B1F29595F0082AEE8 /* TryCatchFinally.m in Sources */ = {isa = PBXBuildFile; fileRef = D849166A1F29595F0082AEE8 /* TryCatchFinally.m */; };
+		D80AD07A1F2A20AE0063C599 /* StringExtensionSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80AD0791F2A20AE0063C599 /* StringExtensionSpec.swift */; };
 		D849166E1F2964AD0082AEE8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849166D1F2964AD0082AEE8 /* String+Extension.swift */; };
 		D84916701F296CCD0082AEE8 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D849166F1F296CCD0082AEE8 /* Double+Extension.swift */; };
 		D84916731F29711C0082AEE8 /* CalculatorRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84916721F29711C0082AEE8 /* CalculatorRouter.swift */; };
@@ -55,12 +55,10 @@
 		D801AC8E1F27EB3900CB1ABC /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		D801AC901F27EB9000CB1ABC /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		D801AC961F27EBD700CB1ABC /* VoiceCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D801AC981F27EBD700CB1ABC /* VoiceCalculatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCalculatorSpec.swift; sourceTree = "<group>"; };
+		D801AC981F27EBD700CB1ABC /* CalculatorBrainSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrainSpec.swift; sourceTree = "<group>"; };
 		D801AC9A1F27EBD700CB1ABC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D801ACA01F27F3F600CB1ABC /* Recognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recognizer.swift; sourceTree = "<group>"; };
-		D84916651F29594B0082AEE8 /* VoiceCalculator-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VoiceCalculator-Bridging-Header.h"; sourceTree = "<group>"; };
-		D84916691F29595F0082AEE8 /* TryCatchFinally.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TryCatchFinally.h; sourceTree = "<group>"; };
-		D849166A1F29595F0082AEE8 /* TryCatchFinally.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TryCatchFinally.m; sourceTree = "<group>"; };
+		D80AD0791F2A20AE0063C599 /* StringExtensionSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionSpec.swift; sourceTree = "<group>"; };
 		D849166D1F2964AD0082AEE8 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D849166F1F296CCD0082AEE8 /* Double+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		D84916721F29711C0082AEE8 /* CalculatorRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorRouter.swift; sourceTree = "<group>"; };
@@ -145,10 +143,8 @@
 		D801AC7B1F27E6C300CB1ABC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D801AC821F27E6F800CB1ABC /* CalculatorBrain.swift */,
 				D801ACA01F27F3F600CB1ABC /* Recognizer.swift */,
-				D84916691F29595F0082AEE8 /* TryCatchFinally.h */,
-				D849166A1F29595F0082AEE8 /* TryCatchFinally.m */,
+				D801AC821F27E6F800CB1ABC /* CalculatorBrain.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -184,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				D801AC901F27EB9000CB1ABC /* Strings.swift */,
-				D84916651F29594B0082AEE8 /* VoiceCalculator-Bridging-Header.h */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -200,7 +195,8 @@
 		D801AC971F27EBD700CB1ABC /* VoiceCalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				D801AC981F27EBD700CB1ABC /* VoiceCalculatorSpec.swift */,
+				D801AC981F27EBD700CB1ABC /* CalculatorBrainSpec.swift */,
+				D80AD0791F2A20AE0063C599 /* StringExtensionSpec.swift */,
 				D801AC9A1F27EBD700CB1ABC /* Info.plist */,
 			);
 			path = VoiceCalculatorTests;
@@ -465,7 +461,6 @@
 				D801AC911F27EB9000CB1ABC /* Strings.swift in Sources */,
 				D801ACA11F27F3F600CB1ABC /* Recognizer.swift in Sources */,
 				D801AC831F27E6F800CB1ABC /* CalculatorBrain.swift in Sources */,
-				D849166B1F29595F0082AEE8 /* TryCatchFinally.m in Sources */,
 				D801AC6A1F27E67100CB1ABC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,7 +469,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D801AC991F27EBD700CB1ABC /* VoiceCalculatorSpec.swift in Sources */,
+				D801AC991F27EBD700CB1ABC /* CalculatorBrainSpec.swift in Sources */,
+				D80AD07A1F2A20AE0063C599 /* StringExtensionSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,7 +602,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.voicecalculator.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VoiceCalculator/App/VoiceCalculator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -623,7 +619,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.voicecalculator.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "VoiceCalculator/App/VoiceCalculator-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

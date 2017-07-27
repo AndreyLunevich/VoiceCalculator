@@ -59,7 +59,7 @@ class CalculatorViewController: BaseViewController {
                 let expression = result?.bestTranscription.formattedString ?? ""
 
                 var calculationResult = ""
-                if let value = self?.brain.result(of: expression) {
+                if let value = self?.brain.compute(expression) {
                     calculationResult = String(format: "%g (%@)", value, value.asWord)
 
                     if isFinal {
