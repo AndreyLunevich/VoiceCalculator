@@ -2,7 +2,7 @@ import Foundation
 
 class CalculatorBrain {
 
-    func result(of expression: String) -> String? {
+    func result(of expression: String) -> Double? {
         let equation = expression.mathEquation
 
         var result: Double?
@@ -13,8 +13,6 @@ class CalculatorBrain {
             result = expr.expressionValue(with: nil, context: nil) as? Double
         }, catch: nil, finally: nil)
 
-        guard let res = result else { return nil }
-
-        return String(format: "%g", res)
+        return result
     }
 }

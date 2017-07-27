@@ -10,11 +10,15 @@ class CalculatorViewController: BaseViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var btnStartStop: UIButton!
 
+    var router: CalculatorRouter?
+
     private let disposeBag = DisposeBag()
-    private let available = Variable<Bool>(false)
+    private let isRunning = Variable<Bool>(false)
 
     private let recognizer = Recognizer()
     private let brain = CalculatorBrain()
+    private var speechSynthesizer = AVSpeechSynthesizer()
+    private var timer: Timer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,30 +28,26 @@ class CalculatorViewController: BaseViewController {
             .subscribe(onNext: { [weak self] in
                 guard let sself = self else { return }
 
-                let available = sself.available.value
-                if available {
-                    sself.startRecognizer()
-                } else {
+                let isRunning = sself.isRunning.value
+                if isRunning {
                     sself.stopRecognizer()
+                } else {
+                    sself.startRecognizer()
                 }
 
-                sself.available.value = !available
+                sself.isRunning.value = !isRunning
             })
             .addDisposableTo(self.disposeBag)
 
-        self.available.asObservable()
-            .map({ !$0 })
+        self.isRunning.asObservable()
             .bind(to: self.btnStartStop.rx.isSelected)
             .addDisposableTo(self.disposeBag)
 
         SFSpeechRecognizer.requestAuthorization { (status) in
             OperationQueue.main.addOperation {
-                switch status {
-                case .authorized:
-                    self.available.value = true
-
-                case .denied, .restricted, .notDetermined:
-                    self.available.value = false
+                // can add switch for more detailed error message
+                if status != .authorized {
+                    self.router?.presentInfoAlert(from: self, title: "", message: "You didn't accept permissions")
                 }
             }
         }
@@ -55,17 +55,22 @@ class CalculatorViewController: BaseViewController {
 
     private func startRecognizer() {
         do {
-            try self.recognizer.start { (result, error, isFinal) in
+            try self.recognizer.start { [weak self] (result, _, isFinal) in
                 let expression = result?.bestTranscription.formattedString ?? ""
 
                 var calculationResult = ""
-                if let temp = self.brain.result(of: expression) {
-                    calculationResult = "\(temp)"
+                if let value = self?.brain.result(of: expression) {
+                    calculationResult = String(format: "%g (%@)", value, value.asWord)
+
+                    if isFinal {
+                        self?.speak(text: value.asWord)
+                    }
                 }
 
-                self.available.value = error != nil || isFinal
-                self.recognizedLabel.text = L10n.calculateValue(expression)
-                self.resultLabel.text = L10n.calculatedValue(calculationResult)
+                self?.recognizedLabel.text = L10n.calculateValue(expression)
+                self?.resultLabel.text = L10n.calculatedValue(calculationResult)
+
+                self?.restartTimer()
             }
         } catch {
             print("Can't start recognition")
@@ -74,7 +79,26 @@ class CalculatorViewController: BaseViewController {
 
     private func stopRecognizer() {
         self.recognizer.stop()
+
         self.recognizedLabel.text = L10n.calculateValue("")
         self.resultLabel.text = L10n.calculatedValue("")
+    }
+
+    private func speak(text: String) {
+        let speechUtterance = AVSpeechUtterance(string: text)
+        speechUtterance.volume = 1.0
+        speechUtterance.rate = 0.5
+        speechUtterance.pitchMultiplier = 1.15
+
+        self.speechSynthesizer.speak(speechUtterance)
+    }
+
+    private func restartTimer() {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] (_) in
+            self?.isRunning.value = false
+
+            self?.stopRecognizer()
+        }
     }
 }
