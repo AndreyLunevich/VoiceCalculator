@@ -32,8 +32,6 @@ class Recognizer {
             fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
 
-        recognitionRequest.shouldReportPartialResults = true
-
         self.recognitionTask = self.speechRecognizer?.recognitionTask(with: recognitionRequest, resultHandler: { (result, error) in
 
             let isFinal = result?.isFinal ?? false

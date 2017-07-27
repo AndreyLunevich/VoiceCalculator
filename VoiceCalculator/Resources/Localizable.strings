@@ -12,3 +12,4 @@
 // calculator
 
 "CALCULATE_VALUE" = "Calculate value of: %@";
+"CALCULATED_VALUE" = "Calculated value: %@";

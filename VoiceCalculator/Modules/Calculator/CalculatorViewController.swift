@@ -1,5 +1,6 @@
 import UIKit
 import Speech
+import Foundation
 import RxCocoa
 import RxSwift
 
@@ -13,6 +14,7 @@ class CalculatorViewController: BaseViewController {
     private let available = Variable<Bool>(false)
 
     private let recognizer = Recognizer()
+    private let brain = CalculatorBrain()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +56,16 @@ class CalculatorViewController: BaseViewController {
     private func startRecognizer() {
         do {
             try self.recognizer.start { (result, error, isFinal) in
-                let value = result?.bestTranscription.formattedString ?? ""
+                let expression = result?.bestTranscription.formattedString ?? ""
 
-                self.recognizedLabel.text = L10n.calculateValue(value)
+                var calculationResult = ""
+                if let temp = self.brain.result(of: expression) {
+                    calculationResult = "\(temp)"
+                }
+
                 self.available.value = error != nil || isFinal
+                self.recognizedLabel.text = L10n.calculateValue(expression)
+                self.resultLabel.text = L10n.calculatedValue(calculationResult)
             }
         } catch {
             print("Can't start recognition")
@@ -66,5 +74,7 @@ class CalculatorViewController: BaseViewController {
 
     private func stopRecognizer() {
         self.recognizer.stop()
+        self.recognizedLabel.text = L10n.calculateValue("")
+        self.resultLabel.text = L10n.calculatedValue("")
     }
 }

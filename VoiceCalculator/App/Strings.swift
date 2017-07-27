@@ -16,6 +16,10 @@ enum L10n {
   static func calculateValue(_ p1: String) -> String {
     return L10n.tr("CALCULATE_VALUE", p1)
   }
+  /// Calculated value: %@
+  static func calculatedValue(_ p1: String) -> String {
+    return L10n.tr("CALCULATED_VALUE", p1)
+  }
   /// Start
   static let start = L10n.tr("START")
   /// Stop
