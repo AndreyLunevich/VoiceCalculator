@@ -17,6 +17,10 @@ class CalculatorBrain {
     private var rpnStack: [String] = []
 
     func compute(_ expression: String) -> Double? {
+        self.outputQueue = []
+        self.operatorsStack = []
+        self.rpnStack = []
+
         let equation = expression.mathEquation
 
         let postfix = self.parseInfix(equation)
@@ -83,7 +87,7 @@ class CalculatorBrain {
             }
         }
 
-        return Double(self.rpnStack.removeLast())
+        return self.rpnStack.count > 0 ? Double(self.rpnStack.removeLast()) : nil
     }
 
     private func makeAnOperation(_ operator: String, left: Double?, right: Double?) -> Double {
